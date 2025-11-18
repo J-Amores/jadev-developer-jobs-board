@@ -3,31 +3,31 @@ import { browser } from '$app/environment';
 
 type Theme = 'light' | 'dark';
 
-const createThemeStore = () => {
-  const { subscribe, set, update } = writable<Theme>('light');
+const { subscribe, set, update } = writable<Theme>('light');
 
-  return {
-    subscribe,
-    set,
-    update,
-    init: () => {
-      if (browser) {
-        const storedTheme = localStorage.getItem('theme') as Theme;
-        if (storedTheme) {
-          set(storedTheme);
-        }
-
-        subscribe(value => {
-          localStorage.setItem('theme', value);
-          if (value === 'dark') {
-            document.documentElement.classList.add('dark');
-          } else {
-            document.documentElement.classList.remove('dark');
-          }
-        });
-      }
+function toggleTheme() {
+  update(current => {
+    const newTheme = current === 'light' ? 'dark' : 'light';
+    if (browser) {
+      document.documentElement.classList.remove('light', 'dark');
+      document.documentElement.classList.add(newTheme);
+      localStorage.setItem('theme', newTheme);
     }
-  };
-};
+    return newTheme;
+  });
+}
 
-export const theme = createThemeStore();
+function init() {
+  if (browser) {
+    const storedTheme = localStorage.getItem('theme') as Theme | null;
+    const initialTheme = storedTheme || 'light';
+    document.documentElement.classList.add(initialTheme);
+    set(initialTheme);
+  }
+}
+
+export const theme = {
+  subscribe,
+  toggle: toggleTheme,
+  init,
+};
