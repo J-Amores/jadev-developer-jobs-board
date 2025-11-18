@@ -4,7 +4,7 @@
   import FilterBar from '$lib/components/FilterBar.svelte';
   import SearchBar from '$lib/components/SearchBar.svelte';
   import { jobs } from '$lib/stores/jobs';
-  import { searchTerm, location, fullTimeOnly, filteredJobs } from '$lib/stores/filters';
+  import { searchTerm, filteredJobs } from '$lib/stores/filters';
 
   export let data: PageData;
   $jobs = data.jobs;
@@ -19,7 +19,7 @@
 
 <div class="space-y-8">
   <SearchBar bind:searchTerm={$searchTerm} />
-  <FilterBar bind:location={$location} bind:fullTimeOnly={$fullTimeOnly} />
+  <FilterBar />
 
   {#if $filteredJobs.length === 0}
     <div class="text-center py-16">
