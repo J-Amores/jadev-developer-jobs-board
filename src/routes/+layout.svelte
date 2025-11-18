@@ -9,8 +9,8 @@
   });
 </script>
 
-<div class="bg-gray-100 dark:bg-gray-800 min-h-screen">
-  <header class="bg-blue-500 text-white p-4 relative z-10">
+<div class="bg-bg-light dark:bg-bg-dark text-text-light dark:text-text-dark min-h-screen">
+  <header class="bg-primary-light dark:bg-primary-dark text-white p-4 relative z-10">
     <div class="container mx-auto flex justify-between items-center">
       <h1 class="text-2xl font-bold">DevJobs</h1>
       <ThemeToggle />
