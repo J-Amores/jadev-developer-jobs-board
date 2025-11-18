@@ -24,7 +24,17 @@ function toggleTheme() {
 function init() {
   if (browser) {
     const storedTheme = localStorage.getItem('theme') as Theme | null;
-    const initialTheme = storedTheme || 'light';
+
+    let initialTheme: Theme;
+
+    if (storedTheme) {
+      // User has a stored preference, use it
+      initialTheme = storedTheme;
+    } else {
+      // No stored preference, check system preference
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      initialTheme = prefersDark ? 'dark' : 'light';
+    }
 
     // Initialize the dark class based on theme
     if (initialTheme === 'dark') {

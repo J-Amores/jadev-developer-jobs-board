@@ -4,7 +4,7 @@ import type { Job } from '$lib/types/job.types';
 
 export const searchTerm = writable('');
 export const location = writable('');
-export const contract = writable('');
+export const contract = writable<string[]>([]);
 
 export const filteredJobs = derived(
   [searchTerm, location, contract, jobs],
@@ -17,7 +17,7 @@ export const filteredJobs = derived(
 
       const locationMatch = $location === '' || job.location === $location;
 
-      const contractMatch = $contract === '' || job.contract === $contract;
+      const contractMatch = $contract.length === 0 || $contract.includes(job.contract);
 
       return searchTermMatch && locationMatch && contractMatch;
     });
