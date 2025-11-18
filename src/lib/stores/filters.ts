@@ -4,24 +4,32 @@ import type { Job } from '$lib/types/job.types';
 
 export const searchTerm = writable('');
 export const location = writable('');
-export const fullTimeOnly = writable(false);
+export const contract = writable('');
 
 export const filteredJobs = derived(
-  [searchTerm, location, fullTimeOnly, jobs],
-  ([$searchTerm, $location, $fullTimeOnly, $jobs]) => {
+  [searchTerm, location, contract, jobs],
+  ([$searchTerm, $location, $contract, $jobs]) => {
     return $jobs.filter((job: Job) => {
       const searchTermMatch =
         $searchTerm.trim() === '' ||
         job.position.toLowerCase().includes($searchTerm.toLowerCase()) ||
         job.company.toLowerCase().includes($searchTerm.toLowerCase());
 
-      const locationMatch =
-        $location.trim() === '' ||
-        job.location.toLowerCase().includes($location.toLowerCase());
+      const locationMatch = $location === '' || job.location === $location;
 
-      const fullTimeMatch = !$fullTimeOnly || job.contract === 'Full Time';
+      const contractMatch = $contract === '' || job.contract === $contract;
 
-      return searchTermMatch && locationMatch && fullTimeMatch;
+      return searchTermMatch && locationMatch && contractMatch;
     });
   }
 );
+
+export const locations = derived(jobs, ($jobs) => {
+  const allLocations = $jobs.map((job) => job.location);
+  return [...new Set(allLocations)];
+});
+
+export const contractTypes = derived(jobs, ($jobs) => {
+  const allContracts = $jobs.map((job) => job.contract);
+  return [...new Set(allContracts)];
+});
