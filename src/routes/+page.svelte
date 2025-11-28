@@ -28,7 +28,7 @@
 	{#if $filteredJobs.length === 0}
 		<div class="text-center py-16">
 			<h2 class="text-2xl font-bold text-very-dark-blue dark:text-white">No Jobs Found</h2>
-			<p class="text-grey dark:text-dark-grey mt-2">
+			<p class="text-gray-500 dark:text-gray-400 mt-2">
 				We couldn't find any jobs matching your search. Try adjusting your filters.
 			</p>
 		</div>

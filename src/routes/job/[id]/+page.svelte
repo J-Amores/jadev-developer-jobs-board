@@ -16,7 +16,7 @@
       class="logo-background w-24 h-24 sm:w-32 sm:h-32 rounded-full flex-shrink-0 mx-auto sm:mx-0 flex items-center justify-center"
       style="background-color: {job.logoBackground}"
     >
-      <img src="{job.logo}" alt="{job.company} logo" class="w-12 h-12 sm:w-16 sm:h-16" />
+      <img src="{job.logo}" alt="{job.company} logo" class="w-12 h-12 sm:w-16 sm:h-16 object-contain" />
     </div>
     <div class="sm:ml-8 mt-6 sm:mt-0">
       <h1 class="text-3xl font-bold text-gray-900 dark:text-white">{job.company}</h1>
