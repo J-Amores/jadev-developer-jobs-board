@@ -1,12 +1,14 @@
 # DevJobs Board
 
-A modern, responsive job board application for developer positions. Browse, search, and filter through developer job opportunities with an elegant interface that adapts to your device and theme preferences.
+A stunning, modern job board application for developer positions. Featuring a premium **Glassmorphism** design, deep dark mode aesthetics, and smooth animations. Browse, search, and filter through developer job opportunities with an elegant interface that adapts to your device and theme preferences.
 
 ## Live Preview
 
 [View Live Site](https://your-deployed-site-url.com)
 
 ## Screenshots
+
+> *Note: Screenshots below are placeholders. The actual application features a new premium Glassmorphism UI.*
 
 ### Desktop View
 ![Desktop Homepage](./screenshots/desktop-home.png)
@@ -22,6 +24,12 @@ A modern, responsive job board application for developer positions. Browse, sear
 
 ## Features
 
+### Premium UI/UX
+- **Glassmorphism Design**: Translucent cards, floating elements, and subtle glows.
+- **Deep Dark Mode**: Rich dark blue backgrounds with animated gradient meshes.
+- **Smooth Animations**: Page transitions, hover lift effects, and spring animations.
+- **Modern Typography**: Using **Plus Jakarta Sans** for a clean, tech-focused look.
+
 ### Job Listings
 - Responsive grid layout displaying job cards with essential information
 - Company logos with custom background colors
@@ -29,6 +37,7 @@ A modern, responsive job board application for developer positions. Browse, sear
 - Hover states and smooth transitions
 
 ### Search & Filter
+- **Floating Search Bar**: Elegant glass-effect search bar.
 - Real-time keyword search across job titles and company names
 - Location-based filtering
 - Multiple contract type selection (Full Time, Part Time, Freelance)
@@ -43,7 +52,9 @@ A modern, responsive job board application for developer positions. Browse, sear
 - Company website links
 
 ### Theme System
-- Light and dark mode support
+- **Advanced Theme Support**:
+    - **Dark Mode**: The default premium experience with glass effects.
+    - **Light Mode**: A clean, high-contrast alternative for bright environments.
 - Automatic system preference detection on first visit
 - Manual theme toggle with preference persistence
 - Smooth theme transitions across all components
